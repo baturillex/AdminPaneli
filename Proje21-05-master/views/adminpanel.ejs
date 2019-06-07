@@ -1,0 +1,136 @@
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>admin panel</title>
+
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+
+    <link rel="stylesheet" href="css/panel.css" media="screen" type="text/css" />
+
+</head>
+
+<body>
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <div class="container">
+        <div class="row custom-nav">
+            <div class="col-md-3 aa">
+                <div class="h-left-con" style="color: white;">
+                    <% data.forEach(function(yonet){ %>
+                    Kullanıcı Adı: <%=yonet.kullaniciadi%> <br>
+                    Mail: <%=yonet.mail%>
+                    <%});%>
+                </div>
+            </div>
+            <div class="col-md-7 aa">
+                <div class="h-center-con">
+                    <div class="col-md-4">
+                        <i class="fa fa-search"></i><input type="text" placeholder="Search" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 aa">
+                <div class="h-right-con">
+                    <ul>
+                        <li>
+                            <i class="fa fa-th" style="color:#d9696a;"></i>
+                        </li>
+                        <li>
+                            <i class="fa fa-bar-chart-o" style="color:#666;"></i>
+                        </li>
+                        <li>
+                            <i class="fa fa-bell-o"></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row bottom-nav">
+            <div class="col-md-12">
+                <div class="nav-con">
+                    <ul>
+                        <li>
+                            <button>
+                                <i class="fa fa-users"></i>
+                                <h4 onclick="etkinliklerigetir()">ETKİNLİKLER</h4>
+                            </button>
+                        </li>
+                        <li>
+                            <button>
+                                <i class="fa fa-truck"></i>
+                                <h4>PRODUCT</h4>
+                            </button>
+                        </li>
+                        <li>
+                            <button>
+                                <i class="fa fa-umbrella"></i>
+                                <h4>ORDER</h4>
+                            </button>
+                        </li>
+                        <li>
+                            <button>
+                                <i class="fa fa-shopping-cart"></i>
+                                <h4>SHOPPING</h4>
+                            </button>
+                        </li>
+                        <li>
+                            <button>
+                                <i class="fa fa-gears"></i>
+                                <h4>SETTING</h4>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row quick-bar">
+            <div class="col-md-2">
+                <input type="text" placeholder="Üye adı, Numarası" />
+                <div class="search-btn">Ara</div>
+            </div>
+            <div class="col-md-2">
+
+            </div>
+        </div>
+        <div class="row content">
+            <% data.forEach(function(yonet){ %>
+
+            <div class="col-md-12">
+                <table class="table table-bordered no-more-tables">
+                    <thead>
+                        <tr>
+                            <th class="text-center" width="5%">Etkinlik Adı</th>
+                            <th class="text-center" width="12%">Etkinlik Açıklama</th>
+                            <th class="text-center" width="8%">URL</th>
+                            <th class="text-center" width="4%">Etkinlik Konusu</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-center"><%= yonet.EtkinlikAdi %></td>
+                            <td class="text-center"><%= yonet.AciklamaBir %></td>
+                            <td class="text-center"><%= yonet.WebSiteUrl %></td>
+                            <td class="text-center"><%= yonet.EtkinlikTipi %></td>
+                            <td class="text-center">
+                                <div class="sparklines" sparktype="bar" sparkbarcolor="#0aa699" values="4,5,6,3,6,4,1">
+                                </div>
+                            </td>
+                            <td class="text-center">
+                                <div class="sparklines" sparktype="bar" sparkbarcolor="#0aa699" values="4,5,6,3,6,4,1">
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <% }); %>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
